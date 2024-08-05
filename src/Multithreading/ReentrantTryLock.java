@@ -4,16 +4,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-class BankAccount{
+class BankAccountTWO{
     int balance = 100;
     private Lock lock  = new ReentrantLock();
     public void withDraw(int money) throws InterruptedException{
         System.out.println(Thread.currentThread().getName() + " --> " + "attempting withdrawl --> " + money);
         try{
-           if(lock.tryLock(1000 , TimeUnit.MILLISECONDS)){
+           if(lock.tryLock(3000 , TimeUnit.MILLISECONDS)){
                 if(balance >=money) {
                     try {
-                        Thread.sleep(3000);
+                        Thread.sleep(6000);
                         this.balance  = this.balance - money;
                         System.out.println( " -->" +Thread.currentThread().getName() + "Completed withdrawl--> " + this.balance  );
                     } catch (InterruptedException e) {
@@ -40,7 +40,7 @@ class BankAccount{
 }
 public class ReentrantTryLock {
     public static void main(String[] args) {
-        BankAccount bank  = new BankAccount();
+    	BankAccountTWO bank  = new BankAccountTWO();
         Runnable task  = new Runnable() {
             public void run(){
                 try {
