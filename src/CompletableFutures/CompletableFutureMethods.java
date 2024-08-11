@@ -1,4 +1,4 @@
-package Multithreading;
+package CompletableFutures;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -6,6 +6,11 @@ import java.util.concurrent.ExecutionException;
 public class CompletableFutureMethods {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             return "done";
         }).thenApply((x) -> {
             return x.toUpperCase();
