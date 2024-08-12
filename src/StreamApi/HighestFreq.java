@@ -26,6 +26,6 @@ public class HighestFreq {
                 .stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .collect(Collectors.toList())
-                .get(0)
+                .get(0);
     }
 }

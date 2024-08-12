@@ -11,5 +11,13 @@ public class LinkedHashSetClass {
         while(itr.hasNext()){
             System.out.println(itr.next());
         }
+
+        for(String s : set){
+            System.out.println(s);
+        }
+        set.add(null);
+        set.add(null);
+        set.add("erg");
+        System.out.println(set);
     }
 }
