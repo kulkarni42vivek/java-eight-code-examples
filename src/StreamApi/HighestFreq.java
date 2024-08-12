@@ -17,5 +17,15 @@ public class HighestFreq {
                 .collect(Collectors.toList())
                 .get(0);
         System.out.println(hmap);
+
+        int[] arr = new int[]{1,1,25,25,2,25,6,6};
+        Arrays.stream(arr)
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(Collectors.toList())
+                .get(0)
     }
 }
