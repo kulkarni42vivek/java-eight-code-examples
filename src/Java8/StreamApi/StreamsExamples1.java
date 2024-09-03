@@ -1,8 +1,9 @@
 package Java8.StreamApi;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class One1 {
+public class StreamsExamples1 {
     public static void main(String[] args) {
 
         List<Integer>list =  Arrays.asList(11,4,35,7,51,61,451,19);
@@ -42,6 +43,17 @@ public class One1 {
         System.out.println(duplicateNumbers.stream().collect(Collectors.toSet()).stream().sorted(Collections.reverseOrder()).skip(1).limit(1).findFirst().get());
 
 
+
+        int[] array = new int[]{12,45,1,52,51};
+        Arrays.stream(array).boxed().max(Comparator.comparing(Integer::valueOf)).get();
+
+
+        int reduce = Arrays.stream(array).reduce(0, (a, b) -> a + b);
+
+        Arrays.stream(array).boxed().max(Comparator.comparing(Integer::valueOf)).get();
+
+
+        Stream.of(array).forEach(System.out::println);
 
 
     }

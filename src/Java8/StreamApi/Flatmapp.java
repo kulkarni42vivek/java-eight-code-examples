@@ -1,9 +1,6 @@
 package Java8.StreamApi;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -19,6 +16,7 @@ public class Flatmapp {
         List<Character> charArray = Arrays.stream(stringarray)
                 .flatMap(x-> x.chars().mapToObj(y-> (char) y))
                 .collect(Collectors.toList());
+
 
         // code 3
         List<Person> people = Arrays.asList(
@@ -42,6 +40,75 @@ public class Flatmapp {
                 .mapToObj(x -> (char) x)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(collect);
+
+
+        List<Flatmapp.Customer> custom  = List.of(
+                new Flatmapp.Customer("vivek" , List.of("vivek","two")),
+                new Flatmapp.Customer("two",List.of("three" , "four")),
+                new Flatmapp.Customer("four",List.of("asf","sdf"))
+        );
+
+        List<String> list  = custom.stream().map(Flatmapp.Customer::getName).collect(Collectors.toList());
+        System.out.println(list);
+
+        List<String> llist =  custom.stream().flatMap(x-> x.getEmails().stream()).collect(Collectors.toList());
+        List<String> lllist = custom.stream().map(Flatmapp.Customer::getEmails).flatMap(Collection::stream).collect(Collectors.toList());
+        System.out.println(llist);
+        System.out.println(lllist);
+
+
+        List<List<List<String>>> values  = List.of(
+                List.of(
+                        List.of(
+                                "vivek", "vijay","kulkarni"
+                        ),
+                        List.of(
+                                "one", "two","three"
+                        )
+                ),
+                List.of(
+
+                        List.of(
+                                "four", "five","six"
+                        )
+                )
+        );
+        System.out.println(values);
+
+        List<String> collect3 = values.stream()
+                .flatMap(Collection::stream)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        List<String> collect1 = values.stream().flatMap(x -> x.stream().flatMap(Collection::stream)).collect(Collectors.toList());
+        System.out.println(collect3);
+        System.out.println(collect1);
+    }
+
+    static class Customer{
+        String name ;
+        List<String> emails;
+
+        public Customer(String name, List<String> emails) {
+            this.name = name;
+            this.emails = emails;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public List<String> getEmails() {
+            return emails;
+        }
+
+        public void setEmails(List<String> emails) {
+            this.emails = emails;
+        }
     }
 }
 class Person {

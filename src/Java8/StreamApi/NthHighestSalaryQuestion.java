@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class NthHigh {
+public class NthHighestSalaryQuestion {
     public static void main(String[] args) {
         Map<String, Integer> map = new HashMap<>();
 

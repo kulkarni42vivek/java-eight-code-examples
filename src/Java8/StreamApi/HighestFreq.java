@@ -2,6 +2,7 @@ package Java8.StreamApi;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class HighestFreq {
@@ -33,6 +34,15 @@ public class HighestFreq {
                 .collect(Collectors.groupingBy(Function.identity() , Collectors.counting()))
                 .entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList())
+                .get(0).getKey();
+
+        name.chars()
+                .mapToObj(x->(char)x)
+                .collect(Collectors.groupingBy(Function.identity() , Collectors.counting()))
+                .entrySet()
+                .stream()
+                .sorted(Comparator.comparing(Map.Entry::getValue))
                 .collect(Collectors.toList())
                 .get(0).getKey();
 
