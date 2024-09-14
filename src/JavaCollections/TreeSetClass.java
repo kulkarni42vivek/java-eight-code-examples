@@ -48,5 +48,13 @@ public class TreeSetClass {
         s.add(new Student(13,"vivetek"));
         s.add(new Student(14,"visdvek"));
         System.out.println(s);
+
+        TreeSet<String> tset  = new TreeSet<>(Collections.reverseOrder());
+        tset.add("jhelo");
+        tset.add("get");
+        tset.add("sfwe");
+        tset.add("wer");
+
+
     }
 }

@@ -1,4 +1,5 @@
 package Java8.StreamApi;
+import java.net.CookieHandler;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -56,6 +57,39 @@ public class StudentOperations {
         Integer x = Arrays.stream(array).mapToObj(v->(Integer)v).max((o1, o2) -> o1-o2).get();
         System.out.println(x);
 
-    }
+        Long collect = list.stream()
+                .mapToDouble(Student::getAge)
+                .boxed()
+                .collect(Collectors.collectingAndThen(
+                        Collectors.averagingDouble(Double::doubleValue),
+                        avg -> Math.round(avg)
+                ));
 
+        System.out.println(collect);
+
+        String[] str = new String[]{"hello","world"};
+        List<String> collect1 = Arrays.stream(str)
+                .collect(
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                m -> m.stream().map(v -> v.toUpperCase())
+                                        .collect(Collectors.toList())
+                        )
+                );
+        System.out.println(collect1);
+
+
+        List<String> words = Arrays.asList("hello", "world", "java");
+        words.stream().collect(
+                Collectors.collectingAndThen(
+                        Collectors.toList(),
+                        list1 -> list1.stream()
+                                .mapToInt(String::length)
+                                .sum()
+                )
+        );
+
+        LinkedHashMap<String, Integer>map8 = list.stream().collect(Collectors.toMap(Student::getDepartmantName , Student::getAge , (integer, integer2) -> integer , () -> new LinkedHashMap<>()));
+        System.out.println(map8);
+    }
 }
