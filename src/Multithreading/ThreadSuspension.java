@@ -1,5 +1,6 @@
 package Multithreading;
 
+// thread suspend and resume are deprecated
 public class ThreadSuspension {
     public static void main(String[] args) {
         Thread thread = new Thread(() -> {

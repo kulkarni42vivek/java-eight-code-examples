@@ -23,6 +23,7 @@ public class StudentOperations {
         System.out.println("----------------------------------------------------");
         //		2- Group The Student By Department Names
         Map<String, List<Student>> mapData = list.stream().collect(Collectors.groupingBy(Student::getDepartmantName));
+        Map<String,Long> mapData2 = list.stream().collect(Collectors.groupingBy(Student::getDepartmantName,Collectors.counting()));
         for(Map.Entry<String , List<Student>> entry : mapData.entrySet()) {
             System.out.println(entry.getKey() + " --> " + entry.getValue());
         }

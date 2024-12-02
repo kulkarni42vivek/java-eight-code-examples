@@ -38,5 +38,7 @@ public class NthHighestSalaryQuestion {
                 .collect(Collectors.toList())
                 .get(1);
 
+        map.entrySet().stream()
+                .collect(Collectors.groupingBy(x->x.getValue(), Collectors.toList()));
     }
 }

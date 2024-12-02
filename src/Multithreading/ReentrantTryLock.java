@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 class BankAccountTWO{
-    int balance = 100;
+    int balance = 1000;
     private Lock lock  = new ReentrantLock();
     public void withDraw(int money) throws InterruptedException{
         System.out.println(Thread.currentThread().getName() + " --> " + "attempting withdrawl --> " + money);
@@ -15,7 +15,7 @@ class BankAccountTWO{
                     try {
                         Thread.sleep(6000);
                         this.balance  = this.balance - money;
-                        System.out.println( " -->" +Thread.currentThread().getName() + "Completed withdrawl--> " + this.balance  );
+                        System.out.println( Thread.currentThread().getName() + "Completed withdrawl--> " + this.balance  );
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -34,8 +34,6 @@ class BankAccountTWO{
         catch(Exception e){
             e.printStackTrace();
         }
-       
-        
     }
 }
 public class ReentrantTryLock {

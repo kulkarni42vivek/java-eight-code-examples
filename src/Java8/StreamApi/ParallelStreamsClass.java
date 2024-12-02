@@ -14,7 +14,7 @@ public class ParallelStreamsClass {
 
 
         List<Integer> listOfNumbers3 = Arrays.asList(1, 2, 3, 4);
-        int sum = listOfNumbers3.parallelStream().reduce(0, Integer::sum);
+        int sum = listOfNumbers3.parallelStream().reduce(0, (a,b)->{return a+b;});
         System.out.println(sum);
     }
 }

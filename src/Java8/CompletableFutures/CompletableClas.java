@@ -20,7 +20,7 @@ public class CompletableClas {
 
         // what is completable futures
         // -- for asynchronous programming
-        // -- writing non blocking code where you have n tasks without blockng the the main thread
+        // -- writing non-blocking code where you have n tasks without blockng the main thread
         // -- why use completable futures
         // --- demerits of futures objects
         // --- cannot manually be completed

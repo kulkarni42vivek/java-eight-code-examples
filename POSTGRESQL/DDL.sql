@@ -8,7 +8,7 @@
 --
 --CREATE — Make a new database, table, and other objects
 --ALTER — Change existing database, table, and other objects
---DROP — Delete databases, tables, and other objects
+--DROP -- Delete databases, tables, and other objects
 --TRUNCATE — Delete all data inside the table
 --COMMENT — Add comments to objects
 --RENAME — Rename objects
@@ -25,11 +25,10 @@
 --Example:
 --DROP TABLE students
 --
---TRUNCATE/COMMENT/RENAM Command is also there. They work for special tasks like removing all data from a table or renaming objects.
+--TRUNCATE/COMMENT/RENAME Command is also there. They work for special tasks like removing all data from a table or renaming objects.
 --DDL commands are useful for defining and changing the structure of the database. It creates a “skeleton”. DML commands are then used to put “meat” on this skeleton by inserting, updating, and deleting actual data.
 --Constraints in DDL
 --Constraints are rules set on data columns while creating tables. This ensures quality data goes inside database tables. Some examples:
---
 --
 --NOT NULL Constraint — Column cannot accept NULL values. Ensures mandatory data.
 --UNIQUE Constraint — Column data must be unique. No duplicates.
@@ -38,5 +37,5 @@
 --CHECK — Values in a column must pass some condition.
 --
 --
-CREATE TABLE students ( id INT PRIMARY KEY,
-name VARCHAR(50) NOT NULL, age INT CHECK (age > 20), course_id INT FOREIGN KEY REFERENCES courses(id) );
+--CREATE TABLE students ( id INT PRIMARY KEY,
+--name VARCHAR(50) NOT NULL, age INT CHECK (age > 20), course_id INT FOREIGN KEY REFERENCES courses(id) );

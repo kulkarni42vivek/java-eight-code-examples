@@ -50,7 +50,7 @@ public class StreamsExamples1 {
 
         int reduce = Arrays.stream(array).reduce(0, (a, b) -> a + b);
 
-        Arrays.stream(array).boxed().max(Comparator.comparing(Integer::valueOf)).get();
+        Arrays.stream(array).boxed().max((o1, o2) -> (int)(o1-o2)).get();
 
 
         Stream.of(array).forEach(System.out::println);

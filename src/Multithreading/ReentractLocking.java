@@ -18,7 +18,7 @@ class BankAccount{
                     e.printStackTrace();
                 }
                 this.balance  = this.balance - money;
-                System.out.println( " -->" +Thread.currentThread().getName() + "Completed withdrawl--> " + this.balance  );
+                System.out.println(Thread.currentThread().getName() + "Completed withdrawl--> " + this.balance  );
             }        
             else{
                 System.out.println("failed insufficient balance");
@@ -29,13 +29,16 @@ class BankAccount{
         }
         
     }
+    public int getMoney(){
+        return this.balance;
+    }
 }
 public class ReentractLocking {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         BankAccount bank  = new BankAccount();
         Runnable task  = new Runnable() {
             public void run(){
-                bank.withDraw(50);
+                bank.withDraw(5);
             }
         };
 
@@ -44,6 +47,11 @@ public class ReentractLocking {
 
         t1.start();
         t2.start();
+
+        t1.join();
+        t2.join();
+
+        System.out.println(bank.getMoney());
 
     }
 }

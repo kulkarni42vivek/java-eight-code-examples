@@ -1,0 +1,33 @@
+When Triggers Can Be Invoked in SQL
+
+Triggers in SQL are a set of actions that are automatically executed in response to certain events
+or actions performed on a database table. These events can be insertions, updates, deletions,
+or other modifications to the data. Here are all possible scenarios when triggers can be invoked in SQL:
+
+1. Insert Operations
+
+Before Insert: A trigger can be invoked before a new row is inserted into a table. This allows for validation, data transformation, or default value assignment.
+After Insert: A trigger can be invoked after a new row has been inserted into a table. This allows for post-insert processing, such as updating related tables or sending notifications.
+2. Update Operations
+
+Before Update: A trigger can be invoked before an existing row is updated in a table. This allows for validation, data transformation, or default value assignment.
+After Update: A trigger can be invoked after an existing row has been updated in a table. This allows for post-update processing, such as updating related tables or sending notifications.
+3. Delete Operations
+
+Before Delete: A trigger can be invoked before a row is deleted from a table. This allows for validation, data transformation, or default value assignment.
+After Delete: A trigger can be invoked after a row has been deleted from a table. This allows for post-delete processing, such as updating related tables or sending notifications.
+4. Other Operations
+
+Instead Of: A trigger can be invoked instead of the original operation, allowing for custom processing or overriding the default behavior.
+System Events: Some databases, like Oracle, allow triggers to be invoked on system events, such as startup, shutdown, or login.
+5. Compound Triggers
+
+Multiple Triggers: Multiple triggers can be defined for the same event, allowing for a sequence of actions to be performed.
+Nested Triggers: Triggers can be nested, where one trigger invokes another trigger, allowing for complex processing flows.
+6. Conditional Triggers
+
+When Clause: Triggers can be defined with a WHEN clause, which specifies a condition that must be met for the trigger to be invoked.
+IF Statement: Triggers can use IF statements to conditionally execute certain actions based on specific conditions.
+These are all possible scenarios when triggers can be invoked in SQL. Do you have any specific questions or scenarios you'd like me to elaborate on?
+
+

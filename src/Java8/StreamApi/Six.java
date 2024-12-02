@@ -23,7 +23,7 @@ public class Six {
                 .collect(Collectors.groupingBy(Function.identity() , Collectors.counting()))
                 .entrySet()
                 .stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .sorted(((o1, o2) -> (int)(o2.getValue()-o1.getValue())))
                 .collect(Collectors.toList())
                 .get(0).getKey();
 
